@@ -14,7 +14,7 @@ async def translate_text(session: aiohttp.ClientSession, text: str) -> str:
             response.raise_for_status()
             data = await response.json()
             text = data["translated_text"]
-            return text.replace(". ", "\n")
+            return text.replace(". ", ".\n")
 
     except aiohttp.ClientError as e:
         logger.error("Network error communicating with API: %s", e)
